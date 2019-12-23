@@ -2,12 +2,13 @@ import _N from '@wonderlandlabs/n';
 import configUniverse from './configUniverse';
 import pixiStreamFactory from '../../pixiStreamFactory';
 
-let universe;
-export const getUniverse = () => universe;
+
+let univStore;
+export const getUniverse = () => univStore;
 
 export default ({ size, history }) => {
-  universe = pixiStreamFactory({ size });
-  universe
+  univStore = pixiStreamFactory({ size });
+  univStore
     .addChild('history', history)
     .addSubStream('currentGalaxyName', '')
     .addAction('updateMousePos', (store, x, y) => {
@@ -17,14 +18,14 @@ export default ({ size, history }) => {
       }
     }, true);
 
-  configUniverse(universe);
+  configUniverse(univStore);
 
-/*  universe.watch('currentGalaxyName', ({ name, value }) => {
+  /*  univStore.watch('currentGalaxyName', ({ name, value }) => {
     console.log('watch: current galaxy name set to ', value);
     if (!value) {
-      universe.do.setCurrentGalaxy(null);
-    } else universe.do.tryToLoadGalaxyFromName();
-  });*/
+      univStore.do.setCurrentGalaxy(null);
+    } else univStore.do.tryToLoadGalaxyFromName();
+  }); */
 
-  return universe;
+  return univStore;
 };

@@ -1,23 +1,70 @@
 import { Hexes } from '@wonderlandlabs/hexagony';
+import { Universe } from '@wonderlandlabs/universe';
+
 import * as PIXI from 'pixi.js';
 import _ from 'lodash';
 import axios from 'axios';
 import Hex from './Hex';
+import UnivSectorGroup from './UnivSectorGroup';
+import rectInterset from './rectsIntersect';
+
+const universe = new Universe({});
+universe.divide(30);
+
+console.log('universe box: ', universe.toBox());
+
+const universeDrawScale = 100000 / universe.diameter;
 
 export default (stream) => {
   stream
-    .addChild('universeGroup')
+    .addChild('universeGroup', new PIXI.Container())
     .addChild('mouseHex')
+    .addProp('universe', universe)
     .addChild('hexMap', new Map())
+    .addChild('metaSectors', new Map())
     .addChild('hexagons', new Hexes({ scale: 50, pointy: true }))
+    .addProp('labelGroup', new PIXI.Container())
+    .addProp('universeDrawScale', universeDrawScale)
     .addAction('initUniverse', (store) => {
-      const ug = new PIXI.Container();
-      const app = store.get('app');
-      app.stage.addChild(ug);
-      store.do.setUniverseGroup(ug);
-      store.do.positionUG();
-      store.do.drawHexes();
-      console.log('init universe called');
+      console.log('initUniverse begun');
+      try {
+        store.my.universeGroup.scale = { x: universeDrawScale, y: universeDrawScale };
+        const app = store.get('app');
+        app.stage.addChild(store.my.universeGroup);
+        app.stage.addChild(store.my.labelGroup);
+        store.my.universe.forEach((sector) => {
+          const univSectorGroup = new UnivSectorGroup({ sector, store });
+          store.my.metaSectors.set(univSectorGroup.id, univSectorGroup);
+        });
+        store.do.positionUG();
+        setTimeout(() => {
+          store.do.drawHexes();
+        }, 500);
+      } catch (err) {
+        console.log('error in initUniverse', err.message);
+      }
+
+      store.do.drawSectors();
+      console.log('initUniverse completed');
+    })
+    .addAction('drawSectors', (store) => {
+      try {
+        store.my.metaSectors.forEach((usg) => {
+          usg.draw();
+          store.my.universeGroup.addChild(usg.graphics);
+        });
+        store.my.metaSectors.forEach((usg) => {
+          const label = usg.getLabel();
+          let { x, y } = usg.sector.center;
+          x *= universeDrawScale;
+          y *= universeDrawScale;
+          label.position = { x, y };
+
+          store.my.labelGroup.addChild(label);
+        });
+      } catch (err) {
+        console.log('drawSectors error:', err.message);
+      }
     })
     .addSubStream('currentGalaxy', null)
     .addAction('updateCurrentGalaxy', (store, secondTry) => {
@@ -47,29 +94,17 @@ export default (stream) => {
       store.do.loadGalaxyDensity(center, 5);
     })
     .addProp('loadingGalaxy', false)
-    .addAction('loadGalaxyDensity', (store, center, range = 20) => {
-      if (store.my.loadingGalaxy) {
-        return;
-      }
-      const { x, y } = center || store.my.centerCoord;
-      const url = `https://univ-2019.appspot.com/uni/${x},${y}/x0y0z0?range=${range}`;
-      store.do.setLoadingGalaxy(true);
-      axios.get(url)
-        .then(({ data }) => {
-          store.do.setLoadingGalaxy(false);
-          if (Array.isArray(data)) {
-            data.forEach(({ x, y, g }) => {
-              store.my.galaxyMap.set(`${x},${y}`, g);
-            });
-            store.do.drawHexes();
-          }
-        })
-        .catch((err) => {
-          console.log('load error: ', err);
-          store.do.setLoadingGalaxy(false);
-        });
-    })
     .addAction('drawHexes', async (store) => {
+      const screenRect = new PIXI.Rectangle(0, 0,
+        store.my.width, store.my.height);
+
+      store.my.metaSectors.forEach((usg) => {
+        const bounds = usg.graphics.getBounds();
+        if (!bounds.width) return;
+        usg.active = rectInterset(bounds, screenRect);
+      });
+    })
+  /*    .addAction('drawHexes', async (store) => {
       const {
         hexagons, universeGroup, width, height, hexMap,
       } = store.my;
@@ -102,7 +137,7 @@ export default (stream) => {
         }
       });
       store.do.setMouseHex(null);
-    })
+    }) */
     .addAction('tryToLoadGalaxyFromName', (store) => {
       store.do.updateCurrentGalaxy();
     })
@@ -131,14 +166,14 @@ export default (stream) => {
 
       const x = store.my.width / 2 - store.my.offset.x;
       const y = store.my.height / 2 - store.my.offset.y;
-      g.position = { x, y };
+      store.my.universeGroup.position = { x, y };
+      store.my.labelGroup.position = { x, y };
       store.do.drawHexes();
     })
     .addAction('reloadGalaxies', (store) => {
       const { x, y } = store.my.offset;
       const coord = store.my.hexagons.nearestHex(x, y);
       store.do.setCenterCoord(coord);
-      store.do.loadGalaxyDensity();
     })
     .addAction('restartHex', (store) => {
       const ug = store.get('universeGroup');
@@ -157,8 +192,6 @@ export default (stream) => {
       stream.do.positionUG();
     }
   });
-
-  stream.do.loadGalaxyDensity();
 
   stream.on('initApp', () => stream.do.initUniverse());
   return stream;

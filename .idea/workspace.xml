@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fdabf26-5a27-43d7-a7fb-9fc9bf857f45" name="Default Changelist" comment="" />
+    <list default="true" id="4fdabf26-5a27-43d7-a7fb-9fc9bf857f45" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/galaxyColors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/rectsIntersect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/configUniverse.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/configUniverse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/univ.store.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/univ.store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +19,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="univ-web" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Propper Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,16 +83,28 @@
       <option name="presentableId" value="Default" />
       <updated>1576893062334</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1577065688927</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577065688927</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577065615863">
+    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577065688674">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577065615863" />
+    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577065688674" />
     <state x="1214" y="633" key="Github.ShareDialog" timestamp="1576991072504">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -84,10 +113,18 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="758" y="316" key="SettingsEditor/0.23.2560.1417@0.23.2560.1417" timestamp="1576963899103" />
-    <state x="1391" y="459" width="838" height="572" key="find.popup" timestamp="1576992407618">
+    <state x="873" y="410" key="Vcs.Push.Dialog.v2" timestamp="1577065755713">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="1391" y="459" width="838" height="572" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1576992407618" />
+    <state x="873" y="410" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1577065755713" />
+    <state x="272" y="246" width="2070" height="1001" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1577127925878">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="272" y="246" width="2070" height="1001" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1577127925878" />
+    <state x="1391" y="459" width="838" height="572" key="find.popup" timestamp="1577124243848">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="1391" y="459" width="838" height="572" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1577124243848" />
     <state x="910" y="355" key="run.anything.popup" timestamp="1576910399437">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
