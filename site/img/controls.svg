@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="230px" height="157px" viewBox="0 0 230 157" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>controls</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="73" cy="73" r="73"></circle>
+        <rect id="path-2" x="8" y="5" width="58" height="146" rx="2"></rect>
+    </defs>
+    <g id="controls" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="disc" transform="translate(77.000000, 5.000000)">
+            <g id="Oval">
+                <use stroke="#9BB503" stroke-width="3" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <circle stroke="#5B7042" stroke-width="2" cx="73" cy="73" r="74"></circle>
+            </g>
+            <circle id="Oval" fill="#D9D16B" fill-rule="evenodd" cx="73" cy="73" r="64.4951456"></circle>
+            <circle id="Oval" fill="#DAD8C1" fill-rule="evenodd" opacity="0.420596168" cx="73" cy="73" r="54.5728155"></circle>
+        </g>
+        <g id="direction-dyad" transform="translate(145.000000, 12.000000)">
+            <g id="tick" transform="translate(3.714286, 1.833333)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+            <g id="tick" transform="translate(3.714286, 110.000000)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+        </g>
+        <g id="direction-dyad" transform="translate(145.000000, 12.000000)">
+            <g id="tick" transform="translate(3.714286, 1.833333)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+            <g id="tick" transform="translate(3.714286, 110.000000)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+        </g>
+        <g id="direction-dyad" transform="translate(150.500000, 78.000000) rotate(70.000000) translate(-150.500000, -78.000000) translate(144.000000, 13.000000)">
+            <g id="tick" transform="translate(3.714286, 1.805556)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.22222222" width="5.57142857" height="5.41666667"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.4444444" width="1.85714286" height="5.41666667"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.41666667"></rect>
+            </g>
+            <g id="tick" transform="translate(3.714286, 108.333333)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.22222222" width="5.57142857" height="5.41666667"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.4444444" width="1.85714286" height="5.41666667"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.41666667"></rect>
+            </g>
+        </g>
+        <g id="direction-dyad" transform="translate(151.500000, 78.500000) rotate(90.000000) translate(-151.500000, -78.500000) translate(145.000000, 13.000000)">
+            <g id="tick" transform="translate(3.714286, 1.819444)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.27777778" width="5.57142857" height="5.45833333"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.5555556" width="1.85714286" height="5.45833333"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.45833333"></rect>
+            </g>
+            <g id="tick" transform="translate(3.714286, 109.166667)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.27777778" width="5.57142857" height="5.45833333"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.5555556" width="1.85714286" height="5.45833333"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.45833333"></rect>
+            </g>
+        </g>
+        <g id="direction-dyad" transform="translate(150.500000, 78.000000) rotate(110.000000) translate(-150.500000, -78.000000) translate(144.000000, 13.000000)">
+            <g id="tick" transform="translate(3.714286, 1.805556)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.22222222" width="5.57142857" height="5.41666667"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.4444444" width="1.85714286" height="5.41666667"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.41666667"></rect>
+            </g>
+            <g id="tick" transform="translate(3.714286, 108.333333)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.22222222" width="5.57142857" height="5.41666667"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.4444444" width="1.85714286" height="5.41666667"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.41666667"></rect>
+            </g>
+        </g>
+        <g id="direction-dyad" transform="translate(150.500000, 78.000000) rotate(-20.000000) translate(-150.500000, -78.000000) translate(144.000000, 12.000000)">
+            <g id="tick" transform="translate(3.714286, 1.833333)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+            <g id="tick" transform="translate(3.714286, 110.000000)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+        </g>
+        <g id="direction-dyad" transform="translate(150.500000, 78.000000) rotate(20.000000) translate(-150.500000, -78.000000) translate(144.000000, 12.000000)">
+            <g id="tick" transform="translate(3.714286, 1.833333)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+            <g id="tick" transform="translate(3.714286, 110.000000)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+        </g>
+        <g id="direction-dyad" transform="translate(145.000000, 12.000000)">
+            <g id="tick" transform="translate(3.714286, 1.833333)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+            <g id="tick" transform="translate(3.714286, 110.000000)">
+                <rect id="Rectangle" fill="#A09503" x="0" y="7.33333333" width="5.57142857" height="5.5"></rect>
+                <rect id="Rectangle-Copy-3" fill="#560000" x="1.85714286" y="14.6666667" width="1.85714286" height="5.5"></rect>
+                <rect id="Rectangle-Copy-4" fill="#D0021B" x="1.85714286" y="0" width="1.85714286" height="5.5"></rect>
+            </g>
+        </g>
+        <text id="כיוון" font-family="LucidaGrande-Bold, Lucida Grande" font-size="14" font-weight="bold" fill="#570202">
+            <tspan x="127" y="47">כיוון</tspan>
+        </text>
+        <g id="ship-cursor" transform="translate(137.000000, 65.000000)" fill="#2A3A4C">
+            <path d="M14,0 L28,28 L24.267,28 L14,7.46666667 L3.733,28 L0,28 L14,0 Z" id="Combined-Shape"></path>
+        </g>
+        <g id="Rectangle">
+            <use stroke="#9BB503" stroke-width="3" fill="#D9D16B" fill-rule="evenodd" xlink:href="#path-2"></use>
+            <rect stroke="#5B7042" stroke-width="2" x="7" y="4" width="60" height="148" rx="2"></rect>
+        </g>
+        <text id="מהירות" font-family="LucidaGrande-Bold, Lucida Grande" font-size="14" font-weight="bold" fill="#570202">
+            <tspan x="8" y="17">מהירות</tspan>
+        </text>
+        <g id="throttle" transform="translate(12.000000, 89.000000)">
+            <polygon id="Path-Copy" fill="#000000" transform="translate(24.367676, 4.000000) scale(1, -1) translate(-24.367676, -4.000000) " points="0.255859375 1.13686838e-13 1.64573216e-14 8 48.7353516 3 43.1165365 1.13686838e-13"></polygon>
+            <polygon id="Path" fill="#4A4A4A" points="3.55271368e-14 4.52970994e-14 0.569335937 4.96354167 48.4794922 4.96354167 42.8606771 4.52970994e-14"></polygon>
+        </g>
+        <g id="tick" transform="translate(20.500000, 28.500000) rotate(90.000000) translate(-20.500000, -28.500000) translate(19.000000, 23.000000)">
+            <rect id="Rectangle" fill="#A09503" x="0" y="4" width="3" height="3"></rect>
+            <rect id="Rectangle-Copy-3" fill="#560000" x="1" y="8" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" x="1" y="0" width="1" height="3"></rect>
+        </g>
+        <g id="tick" transform="translate(20.500000, 143.500000) rotate(90.000000) translate(-20.500000, -143.500000) translate(19.000000, 138.000000)">
+            <rect id="Rectangle" fill="#A09503" x="0" y="4" width="3" height="3"></rect>
+            <rect id="Rectangle-Copy-3" fill="#560000" x="1" y="8" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" x="1" y="0" width="1" height="3"></rect>
+        </g>
+        <g id="subtick" transform="translate(15.000000, 54.000000)" opacity="0.499790737">
+            <rect id="Rectangle-Copy-3" fill="#560000" transform="translate(1.500000, 0.500000) rotate(90.000000) translate(-1.500000, -0.500000) " x="1" y="-1" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" transform="translate(9.500000, 0.500000) rotate(90.000000) translate(-9.500000, -0.500000) " x="9" y="-1" width="1" height="3"></rect>
+        </g>
+        <g id="subtick" transform="translate(15.000000, 67.000000)" opacity="0.499790737">
+            <rect id="Rectangle-Copy-3" fill="#560000" transform="translate(1.500000, 0.500000) rotate(90.000000) translate(-1.500000, -0.500000) " x="1" y="-1" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" transform="translate(9.500000, 0.500000) rotate(90.000000) translate(-9.500000, -0.500000) " x="9" y="-1" width="1" height="3"></rect>
+        </g>
+        <g id="subtick" transform="translate(15.000000, 79.000000)" opacity="0.499790737">
+            <rect id="Rectangle-Copy-3" fill="#560000" transform="translate(1.500000, 0.500000) rotate(90.000000) translate(-1.500000, -0.500000) " x="1" y="-1" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" transform="translate(9.500000, 0.500000) rotate(90.000000) translate(-9.500000, -0.500000) " x="9" y="-1" width="1" height="3"></rect>
+        </g>
+        <g id="subtick" transform="translate(15.000000, 92.000000)" opacity="0.499790737">
+            <rect id="Rectangle-Copy-3" fill="#560000" transform="translate(1.500000, 0.500000) rotate(90.000000) translate(-1.500000, -0.500000) " x="1" y="-1" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" transform="translate(9.500000, 0.500000) rotate(90.000000) translate(-9.500000, -0.500000) " x="9" y="-1" width="1" height="3"></rect>
+        </g>
+        <g id="subtick" transform="translate(15.000000, 129.000000)" opacity="0.499790737">
+            <rect id="Rectangle-Copy-3" fill="#560000" transform="translate(1.500000, 0.500000) rotate(90.000000) translate(-1.500000, -0.500000) " x="1" y="-1" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" transform="translate(9.500000, 0.500000) rotate(90.000000) translate(-9.500000, -0.500000) " x="9" y="-1" width="1" height="3"></rect>
+        </g>
+        <g id="subtick" transform="translate(15.000000, 104.000000)" opacity="0.499790737">
+            <rect id="Rectangle-Copy-3" fill="#560000" transform="translate(1.500000, 0.500000) rotate(90.000000) translate(-1.500000, -0.500000) " x="1" y="-1" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" transform="translate(9.500000, 0.500000) rotate(90.000000) translate(-9.500000, -0.500000) " x="9" y="-1" width="1" height="3"></rect>
+        </g>
+        <g id="subtick" transform="translate(15.000000, 117.000000)" opacity="0.499790737">
+            <rect id="Rectangle-Copy-3" fill="#560000" transform="translate(1.500000, 0.500000) rotate(90.000000) translate(-1.500000, -0.500000) " x="1" y="-1" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" transform="translate(9.500000, 0.500000) rotate(90.000000) translate(-9.500000, -0.500000) " x="9" y="-1" width="1" height="3"></rect>
+        </g>
+        <g id="subtick" transform="translate(15.000000, 42.000000)" opacity="0.499790737">
+            <rect id="Rectangle-Copy-3" fill="#560000" transform="translate(1.500000, 0.500000) rotate(90.000000) translate(-1.500000, -0.500000) " x="1" y="-1" width="1" height="3"></rect>
+            <rect id="Rectangle-Copy-4" fill="#D0021B" transform="translate(9.500000, 0.500000) rotate(90.000000) translate(-9.500000, -0.500000) " x="9" y="-1" width="1" height="3"></rect>
+        </g>
+        <text id="ایک-دو-تین-چار-پانچ" font-family="GeezaPro, Geeza Pro" font-size="10" font-weight="normal" fill="#570202">
+            <tspan x="43.7404639" y="32">ایک</tspan>
+            <tspan x="44.7757262" y="34.9529724" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="41.4034775" y="45.3269958" font-family="LucidaGrande, Lucida Grande">  </tspan>
+            <tspan x="43.0402351" y="45">دو</tspan>
+            <tspan x="44.0754973" y="46.9529724" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="44.5722903" y="57">تین</tspan>
+            <tspan x="45.6075526" y="59.9529724" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="43.9758102" y="70.3269958" font-family="LucidaGrande, Lucida Grande">  </tspan>
+            <tspan x="40.4679024" y="70">چار</tspan>
+            <tspan x="41.5031646" y="71.9529724" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="44.4437126" y="83.3269958" font-family="LucidaGrande, Lucida Grande">  </tspan>
+            <tspan x="40" y="83">پانچ</tspan>
+            <tspan x="41.0352622" y="84.9529724" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="43.0761719" y="96.3269958" font-family="LucidaGrande, Lucida Grande">  </tspan>
+            <tspan x="41.3675407" y="96">چھ</tspan>
+            <tspan x="42.4028029" y="97.9529724" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="41.8507714" y="108">سات</tspan>
+            <tspan x="42.8860336" y="110.952972" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="42.9495896" y="121.326996" font-family="LucidaGrande, Lucida Grande">  </tspan>
+            <tspan x="41.494123" y="121">آٹھ</tspan>
+            <tspan x="42.5293852" y="122.952972" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="46.769397" y="133">نو</tspan>
+            <tspan x="47.8046592" y="135.952972" font-family="LucidaGrande, Lucida Grande"></tspan>
+            <tspan x="41.7422723" y="145">صفر</tspan>
+        </text>
+    </g>
+</svg>

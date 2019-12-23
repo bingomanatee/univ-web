@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4fdabf26-5a27-43d7-a7fb-9fc9bf857f45" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="univ-web" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1VGx78vBR4fD7wEhGc8LpVcydRP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/site/js/containers/Throttle" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/site/js/containers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/site/js/containers/Throttle" />
+      <recent name="$PROJECT_DIR$/site/js" />
+      <recent name="$PROJECT_DIR$/site/js/containers/pages" />
+      <recent name="$PROJECT_DIR$/site/js/store" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4fdabf26-5a27-43d7-a7fb-9fc9bf857f45" name="Default Changelist" comment="" />
+      <created>1576893062334</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576893062334</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577065615863">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577065615863" />
+    <state x="1214" y="633" key="Github.ShareDialog" timestamp="1576991072504">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="1214" y="633" key="Github.ShareDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1576991072504" />
+    <state x="758" y="316" key="SettingsEditor" timestamp="1576963899103">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="758" y="316" key="SettingsEditor/0.23.2560.1417@0.23.2560.1417" timestamp="1576963899103" />
+    <state x="1391" y="459" width="838" height="572" key="find.popup" timestamp="1576992407618">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="1391" y="459" width="838" height="572" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1576992407618" />
+    <state x="910" y="355" key="run.anything.popup" timestamp="1576910399437">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="910" y="355" key="run.anything.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1576910399437" />
+  </component>
+</project>
