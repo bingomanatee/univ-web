@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fdabf26-5a27-43d7-a7fb-9fc9bf857f45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/site/img/controls-2-large.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/img/direction-indicator-2.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/img/controls.sketch" beforeDir="false" afterPath="$PROJECT_DIR$/site/img/controls.sketch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Controls/ControlsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Controls/ControlsComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/js/containers/Controls/ControlsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Controls/ControlsView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Controls/DirectionIndicator.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Controls/DirectionIndicator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577187600779</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated control UI">
+      <created>1577221126800</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577221126800</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,13 +122,14 @@
     <MESSAGE value="got a universe wanderer working" />
     <MESSAGE value="fixed major fuck-up around galaxy subdivision" />
     <MESSAGE value="squelching comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="squelching comment" />
+    <MESSAGE value="updated control UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated control UI" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577187600690">
+    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577221126679">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577187600690" />
+    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577221126679" />
     <state x="1214" y="633" key="Github.ShareDialog" timestamp="1576991072504">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -137,10 +138,10 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="758" y="316" key="SettingsEditor/0.23.2560.1417@0.23.2560.1417" timestamp="1576963899103" />
-    <state x="873" y="410" key="Vcs.Push.Dialog.v2" timestamp="1577187489723">
+    <state x="873" y="410" key="Vcs.Push.Dialog.v2" timestamp="1577221128512">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="873" y="410" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1577187489723" />
+    <state x="873" y="410" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1577221128512" />
     <state x="272" y="246" width="2070" height="1001" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1577127925878">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>

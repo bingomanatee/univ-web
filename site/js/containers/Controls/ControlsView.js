@@ -36,6 +36,10 @@ function SvgComponent({
     setThrottle(Number(t) || 0);
   };
 
+  const strokeColor = 'rgba(0,0,0,0.25)';
+  const inactiveColor = 'rgba(128,128,128,0.5)';
+  const inactiveDirColor = 'rgba(0,0,0,0.5)';
+
   return (
     <ControlStyle>
       <svg width="312px" height="279px" viewBox="0 0 312 279">
@@ -64,16 +68,16 @@ function SvgComponent({
           <path
             d="M141,31 C207.27417,31 261,84.72583 261,151 C261,217.27417 207.27417,271 141,271 C74.72583,271 21,217.27417 21,151 C21,84.72583 74.72583,31 141,31 Z M141,51 C85.771525,51 41,95.771525 41,151 C41,206.228475 85.771525,251 141,251 C196.228475,251 241,206.228475 241,151 C241,95.771525 196.228475,51 141,51 Z"
             id="go-ring-inactive"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
-            fill="#6E6E6E"
+            fill={inactiveColor}
             strokeLinejoin="bevel"
           />
           <circle
             id="go-center"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
-            fill="#6E6E6E"
+            fill={inactiveColor}
             strokeLinejoin="bevel"
             cx={141}
             cy={151}
@@ -81,9 +85,9 @@ function SvgComponent({
           />
           <rect
             id="throttle-stop-inactive"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
-            fill="#6E6E6E"
+            fill={inactiveColor}
             strokeLinejoin="bevel"
             x={1}
             y={131}
@@ -95,9 +99,9 @@ function SvgComponent({
           <path
             d="M75.7209356,27.118865 L80.2407218,36.0431435 C47.1686017,53.5593608 22.5615512,84.9294801 14.1512462,122.421826 L4.47538306,119.861408 C13.6226949,79.5870703 40.1337999,45.9103019 75.7209356,27.118865 Z"
             id="throttle-1-inactive"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
-            fill="#6E6E6E"
+            fill={inactiveColor}
             strokeLinejoin="bevel"
             datathrottle={1}
             onClick={chooseThrottle}
@@ -105,9 +109,9 @@ function SvgComponent({
           <path
             d="M141,1 C166.540952,1 190.590959,7.38349767 211.641614,18.6420871 L202.491272,36.4338386 C184.183478,26.5868248 163.244175,21 141,21 C118.755832,21 97.8165358,26.5868212 79.5087462,36.433829 L70.3587237,18.6419064 C91.4092982,7.38342935 115.459184,1 141,1 Z"
             id="throttle-2-inactive"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
-            fill="#6E6E6E"
+            fill={inactiveColor}
             strokeLinejoin="bevel"
             datathrottle={2}
             onClick={chooseThrottle}
@@ -115,9 +119,9 @@ function SvgComponent({
           <path
             d="M301,151 C301,152.672777 300.97433,154.339559 300.923361,155.999973 L270.905603,156.000352 C270.968346,154.341338 271,152.674366 271,151 C271,101.667752 243.521423,58.7534698 203.035166,36.7280511 L216.521549,9.9095447 C266.804546,36.8809789 301,89.9471013 301,151 Z"
             id="throttle-3-inactive"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
-            fill="#6E6E6E"
+            fill={inactiveColor}
             strokeLinejoin="bevel"
             datathrottle={3}
             onClick={chooseThrottle}
@@ -125,16 +129,16 @@ function SvgComponent({
           <path
             d="M311,156 L311,271 L191.079145,271.003697 C236.561967,252.000998 268.942864,207.894579 270.90559,156.000684 L311,156 Z"
             id="throttle-4-inactive"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
-            fill="#6E6E6E"
+            fill={inactiveColor}
             strokeLinejoin="bevel"
             datathrottle={4}
             onClick={chooseThrottle}
           />
           <rect
             id="throttle-stop"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
             fill="#FF4E00"
             strokeLinejoin="bevel"
@@ -149,7 +153,7 @@ function SvgComponent({
           <path
             d="M75.7209356,27.118865 L80.2407218,36.0431435 C47.1686017,53.5593608 22.5615512,84.9294801 14.1512462,122.421826 L4.47538306,119.861408 C13.6226949,79.5870703 40.1337999,45.9103019 75.7209356,27.118865 Z"
             id="throttle-1"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
             fill="#FFC500"
             strokeLinejoin="bevel"
@@ -160,7 +164,7 @@ function SvgComponent({
           <path
             d="M141,1 C166.540952,1 190.590959,7.38349767 211.641614,18.6420871 L202.491272,36.4338386 C184.183478,26.5868248 163.244175,21 141,21 C118.755832,21 97.8165358,26.5868212 79.5087462,36.433829 L70.3587237,18.6419064 C91.4092982,7.38342935 115.459184,1 141,1 Z"
             id="throttle-2"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
             fill="#FFC500"
             strokeLinejoin="bevel"
@@ -171,7 +175,7 @@ function SvgComponent({
           <path
             d="M301,151 C301,152.672777 300.97433,154.339559 300.923361,155.999973 L270.905603,156.000352 C270.968346,154.341338 271,152.674366 271,151 C271,101.667752 243.521423,58.7534698 203.035166,36.7280511 L216.521549,9.9095447 C266.804546,36.8809789 301,89.9471013 301,151 Z"
             id="throttle-3"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
             fill="#FFC500"
             strokeLinejoin="bevel"
@@ -182,7 +186,7 @@ function SvgComponent({
           <path
             d="M311,156 L311,271 L191.079145,271.003697 C236.561967,252.000998 268.942864,207.894579 270.90559,156.000684 L311,156 Z"
             id="throttle-4"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeWidth={2}
             fill="#FFC500"
             strokeLinejoin="bevel"
@@ -193,8 +197,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(249.500000, 151.000000) rotate(90.000000) translate(-249.500000, -151.000000) translate(239.500000, 132.500000)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -208,8 +212,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(234.963756, 96.750000) rotate(60.000000) translate(-234.963756, -96.750000) translate(224.963756, 78.250000)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -224,8 +228,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(195.250000, 57.036244) rotate(30.000000) translate(-195.250000, -57.036244) translate(185.250000, 38.536244)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -239,8 +243,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(131.000000, 24.000000)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -254,8 +258,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(86.750000, 57.036244) rotate(-30.000000) translate(-86.750000, -57.036244) translate(76.750000, 38.536244)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -269,8 +273,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(47.036244, 96.750000) rotate(300.000000) translate(-47.036244, -96.750000) translate(37.036244, 78.250000)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -284,8 +288,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(32.500000, 151.000000) rotate(270.000000) translate(-32.500000, -151.000000) translate(22.500000, 132.500000)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -299,8 +303,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(47.036244, 205.250000) rotate(240.000000) translate(-47.036244, -205.250000) translate(37.036244, 186.750000)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -314,8 +318,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(86.750000, 244.963756) rotate(210.000000) translate(-86.750000, -244.963756) translate(76.750000, 226.463756)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -329,8 +333,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(141.000000, 259.500000) rotate(180.000000) translate(-141.000000, -259.500000) translate(131.000000, 241.000000)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -344,8 +348,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(195.250000, 244.963756) rotate(150.000000) translate(-195.250000, -244.963756) translate(185.250000, 226.463756)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -359,8 +363,8 @@ function SvgComponent({
           <g
             id="go-arrow-inactive"
             transform="translate(234.963756, 205.250000) rotate(120.000000) translate(-234.963756, -205.250000) translate(224.963756, 186.750000)"
-            fill="#6E6E6E"
-            stroke="#000000"
+            fill={inactiveDirColor}
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
           >
@@ -375,7 +379,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(249.500000, 151.000000) rotate(90.000000) translate(-249.500000, -151.000000) translate(239.500000, 132.500000)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 0)}
@@ -388,7 +392,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(234.963756, 96.750000) rotate(60.000000) translate(-234.963756, -96.750000) translate(224.963756, 78.250000)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 330)}
@@ -401,7 +405,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(195.250000, 57.036244) rotate(30.000000) translate(-195.250000, -57.036244) translate(185.250000, 38.536244)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 300)}
@@ -414,7 +418,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(131.000000, 24.000000)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 270)}
@@ -427,7 +431,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(86.750000, 57.036244) rotate(-30.000000) translate(-86.750000, -57.036244) translate(76.750000, 38.536244)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 240)}
@@ -440,7 +444,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(47.036244, 96.750000) rotate(300.000000) translate(-47.036244, -96.750000) translate(37.036244, 78.250000)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 210)}
@@ -453,7 +457,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(32.500000, 151.000000) rotate(270.000000) translate(-32.500000, -151.000000) translate(22.500000, 132.500000)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 180)}
@@ -466,7 +470,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(47.036244, 205.250000) rotate(240.000000) translate(-47.036244, -205.250000) translate(37.036244, 186.750000)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 150)}
@@ -479,7 +483,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(86.750000, 244.963756) rotate(210.000000) translate(-86.750000, -244.963756) translate(76.750000, 226.463756)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 120)}
@@ -492,7 +496,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(141.000000, 259.500000) rotate(180.000000) translate(-141.000000, -259.500000) translate(131.000000, 241.000000)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 90)}
@@ -505,7 +509,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(195.250000, 244.963756) rotate(150.000000) translate(-195.250000, -244.963756) translate(185.250000, 226.463756)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 60)}
@@ -518,7 +522,7 @@ function SvgComponent({
             id="go-active"
             transform="translate(234.963756, 205.250000) rotate(120.000000) translate(-234.963756, -205.250000) translate(224.963756, 186.750000)"
             fill="#B6D300"
-            stroke="#000000"
+            stroke={strokeColor}
             strokeLinejoin="bevel"
             strokeWidth={2}
             style={showIf(direction === 30)}
