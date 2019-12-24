@@ -30,7 +30,7 @@ class USGHex {
 
     this.sector.divide(5);
 
-    const children = _.shuffle(this.sector.getChildren()).slice(0, (this.sector.galaxies/2));
+    const children = _.shuffle(this.sector.getChildren()).slice(0, (this.sector.galaxies));
 
     children.forEach((c) => {
       c.color = galaxyColors();

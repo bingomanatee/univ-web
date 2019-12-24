@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ValueStream } from '@wonderlandlabs/looking-glass-engine';
 import _ from 'lodash';
+import is from 'is';
 
 import { Stack } from 'grommet';
 import { SVG } from '@svgdotjs/svg.js';
@@ -28,38 +29,12 @@ export default class Controls extends Component {
     this.store = new ValueStream('controls')
       .addProp('angle', 0, 'number')
       .addProp('targetAngle', 0, 'number')
-      .addAction('enableDiscClick', (store) => {
-        const { disc } = store.my;
-        const discSVG = SVG(disc);
-        discSVG.click((e) => {
-          console.log('disc click', e);
-          const { layerX, layerY } = e;
-
-          const x = layerX - DISC_X;
-          const y = layerY - DISC_Y;
-
-          let angle = (Math.atan2(y, x) * (360 / (Math.PI * 2)));
-
-          _.range(-360, 450, 90)
-            .forEach((target) => {
-              if (_.clamp(angle, target - C, target + C) === angle) {
-                angle = target;
-              }
-            });
-
-          angle -= (angle % 15);
-
-          store.do.setTargetAngle(angle + 90);
-          store.do.moveToTargetAngle();
-        });
-      })
-      .addProp('throttleTarget')
+      .addProp('throttleTarget', 0, 'number')
       .addProp('offset', { x: 0, y: 0 })
       .addAction('updateOffset', (store) => {
-        const move = 5 * store.my.throttle / THROTTLE_HEIGHT;
-        const rad = (store.my.angle - 90) * (Math.PI * 2) / 360;
+        const move = 5 * store.my.throttle/3;
+        const rad = (store.my.angle) * (Math.PI * 2) / 360;
         const { x, y } = store.my.offset;
-        if (!rad) return;
         const xAdd = Math.cos(rad) * move;
         const yAdd = Math.sin(rad) * move;
 
@@ -67,19 +42,6 @@ export default class Controls extends Component {
       })
       .addProp('stopTarget')
       .addProp('throttle', 0, 'number')
-      .addAction('enableThrottleClick', (store) => {
-        const { throttleTarget, stopTarget } = store.my;
-        const throttleSVG = SVG(throttleTarget);
-        throttleSVG.click((e) => {
-          const { layerY } = e;
-
-          const y = layerY - THROTTLE_MIN_Y;
-          store.do.setThrottle(Math.round(y / THROTTLE_UNIT) * THROTTLE_UNIT);
-        });
-        SVG(stopTarget).click(() => {
-          store.do.setThrottle(0);
-        });
-      })
       .addProp('angleVelocity', 0, 'number')
       .addAction('moveToTargetAngle', (store) => {
         let { angle, angleVelocity } = store.my;
@@ -130,64 +92,41 @@ export default class Controls extends Component {
 
   componentWillUnmount() {
     if (this._sub) this._sub.unsubscribe();
+    if (this._bsPos) clearInterval(this._bsPos);
   }
 
   componentDidMount() {
-    const diEle = this.diRef.current;
-    this.store.do.setDirectionIndicator(diEle);
-
-    const cEle = this.controlsRef.current;
-
-    const disc = cEle.querySelector('#disc');
-
-    const throttleTarget = cEle.querySelector('#throttle-target');
-    const stopTarget = cEle.querySelector('#throttle-stop');
-
-    this.store.do.setDisc(disc);
-    this.store.do.enableDiscClick();
-
-    this.store.do.setThrottleTarget(throttleTarget);
-    this.store.do.setStopTarget(stopTarget);
-    this.store.do.enableThrottleClick();
-
-    const broadcastPos = setInterval(() => {
+    this._bsPos = setInterval(() => {
       this.store.do.updateOffset();
       this.props.setOffset(this.store.my.offset);
     }, 50);
 
-    this._sub = this.store.filter('angle', 'throttle')
-      .subscribe((update) => {
-        this.setState(update);
-      }, (err) => { console.log('control error: ', err); }, () => clearInterval(broadcastPos));
+    this._sub = this.store.filter('angle', 'targetAngle', 'throttle')
+      .subscribe((state) => this.setState(state));
   }
 
   render() {
     const { angle, throttle } = this.state;
+    console.log('rendering controls with ', angle, throttle);
     return (
       <>
         <div ref={this.controlsRef}>
-          <ControlsView />
-        </div>
-        <div
-          style={({
-            position: 'absolute',
-            left: 257,
-            top: 120,
-            transform: `rotate(${angle}deg)`,
-          })}
-          ref={this.diRef}
-        >
-          <DirectionIndicator />
-        </div>
-        <div
-          style={({
-            position: 'absolute',
-            left: 20,
-            top: 35 + throttle,
-          })}
-          ref={this.throttleRef}
-        >
-          <ThrottleIndicator />
+          <ControlsView
+            setDirection={(a) => {
+              console.log('recieved dir ', a);
+              // ui flaw in svg - numbers went wrong direction
+              if (is.number(a)) this.store.do.setAngle(a);
+              else {
+                console.log('setDirection - bad value: ', a);
+              }
+            }}
+            direction={angle}
+            throttle={throttle}
+            setThrottle={(n) => {
+              console.log('setThrottle called with ', n);
+              this.store.do.setThrottle(n);
+            }}
+          />
         </div>
       </>
     );

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>direction-indicator-2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="62.881289%" fx="50%" fy="62.881289%" r="78.3596579%" gradientTransform="translate(0.500000,0.628813),scale(1.000000,0.635227),rotate(-90.000000),scale(1.000000,0.604045),translate(-0.500000,-0.628813)" id="radialGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#1272B8" offset="41.6220364%"></stop>
+            <stop stop-color="#000001" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="direction-indicator-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M27.5,1.47583008 L41.5696348,27.7580509 C43.7228945,30.6064492 45,34.1540826 45,38 C45,47.3888407 37.3888407,55 28,55 C18.6111593,55 11,47.3888407 11,38 C11,34.6323703 11.9792093,31.4934472 13.6684344,28.8524241 L27.5,1.47583008 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="2" fill="url(#radialGradient-1)"></path>
+    </g>
+</svg>

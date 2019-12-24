@@ -60,7 +60,6 @@ export default class Hex {
           this.sector.divide(5);
           this.sector.forEach(s =>s.galaxies = 0);
           data.forEach((datum) => {
-            console.log('datum: ', datum);
             const datumID = `${datum.x},${datum.y}`;
             if (this.store.my.datumClaims.has(datumID)) {
               // some sectors share sub-hexes at their borders
