@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fdabf26-5a27-43d7-a7fb-9fc9bf857f45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/galaxyColors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/rectsIntersect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.firebaserc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/configUniverse.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/configUniverse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/univ.store.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/univ.store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577065688927</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="got a universe wanderer working">
+      <created>1577129641886</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577129641886</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,13 +102,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="got a universe wanderer working" />
+    <option name="LAST_COMMIT_MESSAGE" value="got a universe wanderer working" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577065688674">
+    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577129641687">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577065688674" />
+    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577129641687" />
     <state x="1214" y="633" key="Github.ShareDialog" timestamp="1576991072504">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>

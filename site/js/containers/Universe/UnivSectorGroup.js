@@ -49,16 +49,27 @@ export default class Hex {
       return;
     }
     let { x, y } = this.sector.coord;
-    x *= 5;
-    y *= 5;
+    x *= 10;
+    y *= 10;
 
     this.loadStatus = 'loading';
-    const url = `https://univ-2019.appspot.com/uni/${x},${y}/x0y0z0?range=15`;
+    const url = `https://univ-2019.appspot.com/uni/${x},${y}/x0y0z0?range=7`;
     axios.get(url)
       .then(({ data }) => {
         if (Array.isArray(data)) {
-          this.sector.divide(10);
+          this.sector.divide(5);
+          this.sector.forEach(s =>s.galaxies = 0);
           data.forEach((datum) => {
+            console.log('datum: ', datum);
+            const datumID = `${datum.x},${datum.y}`;
+            if (this.store.my.datumClaims.has(datumID)) {
+              // some sectors share sub-hexes at their borders
+              const parentId = this.store.my.datumClaims.get(datumID);
+              if (parentId !== this.sector.id) {
+                // another sector has claimed the subhex; don't try to use this datum.
+                return;
+              }
+            }
             const localX = datum.x - x;
             const localY = datum.y - y;
 
@@ -76,10 +87,11 @@ export default class Hex {
             if (match) {
               match.galaxies = datum.g;
               match.datum = datum;
+              this.store.my.datumClaims.set(datumID, this.sector.id);
             }
           });
           this.loadStatus = 'loaded';
-          this._text.text = '';
+          this._text.text = this.id;
           this.draw();
         } else {
           this.loadStatus = 'error';
@@ -169,7 +181,7 @@ export default class Hex {
     this.sector.forEach((sub) => {
       if (sub.datum) {
         const text = new PIXI.Text(`${sub.datum.x},${sub.datum.y}`, {
-          fontFamily: 'Helvetica,sans-serif', fill: 'grey', fontSize: 18, align: 'center',
+          fontFamily: 'Helvetica,sans-serif', fill: 'grey', fontSize: 16, align: 'center',
         });
 
         let { x, y } = sub.center;

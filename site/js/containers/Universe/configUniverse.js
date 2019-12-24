@@ -11,9 +11,11 @@ import rectInterset from './rectsIntersect';
 const universe = new Universe({});
 universe.divide(30);
 
+console.log('---- done comparing true universe with universe');
+
 console.log('universe box: ', universe.toBox());
 
-const universeDrawScale = 100000 / universe.diameter;
+const universeDrawScale = 50000 / universe.diameter;
 
 export default (stream) => {
   stream
@@ -25,6 +27,7 @@ export default (stream) => {
     .addChild('hexagons', new Hexes({ scale: 50, pointy: true }))
     .addProp('labelGroup', new PIXI.Container())
     .addProp('universeDrawScale', universeDrawScale)
+    .addProp('datumClaims', new Map())
     .addAction('initUniverse', (store) => {
       console.log('initUniverse begun');
       try {
