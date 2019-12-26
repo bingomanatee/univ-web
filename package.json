@@ -18,7 +18,7 @@
   "dependencies": {
     "@svgdotjs/svg.js": "^3.0.16",
     "@wonderlandlabs/hexagony": "^2.0.0",
-    "@wonderlandlabs/looking-glass-engine": "^~3.0",
+    "@wonderlandlabs/looking-glass-engine": "^3.0.6",
     "@wonderlandlabs/n": "^1.0.2",
     "@wonderlandlabs/propper": "^3.0.0",
     "@wonderlandlabs/universe": "^1.0.0",
@@ -27,6 +27,7 @@
     "chroma-js": "^2.0.6",
     "grommet": "^2.7.9",
     "grommet-icons": "^4.3.0",
+    "is": "^3.3.0",
     "is_js": "^0.9.0",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",

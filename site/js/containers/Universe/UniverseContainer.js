@@ -4,15 +4,16 @@ import { throttleTime } from 'rxjs/operators';
 import _ from 'lodash';
 import { Layer } from 'grommet';
 
-import fgStreamFactory from './univ.store';
+import univStoreFactory from './univ.store';
 import UniverseView from './UniverseView';
 import Controls from '../Controls';
+import Cursor from './Cursor';
 
 export default class UniverseContainer extends Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
-    this.stream = fgStreamFactory(props);
+    this.stream = univStoreFactory(props);
     this.state = { ...this.stream.state };
     this.resizeApp = _.debounce(() => this.stream.do.resizeApp(this.props.size), 200);
   }
@@ -53,6 +54,7 @@ export default class UniverseContainer extends Component {
   render() {
     return (
       <UniverseView reference={this.ref}>
+        <Layer plain position="center"><Cursor stream={this.stream} /></Layer>
         <Layer plain position="bottom-right"><Controls setOffset={this.stream.do.setOffset} /></Layer>
       </UniverseView>
     );

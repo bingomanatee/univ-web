@@ -5,6 +5,7 @@ import is from 'is';
 
 import { Stack } from 'grommet';
 import { SVG } from '@svgdotjs/svg.js';
+import { Vector2 } from '../../three/Vector2';
 import ControlsView from './ControlsView';
 import DirectionIndicator from './DirectionIndicator';
 import ThrottleIndicator from './ThrottleIndicator';
@@ -30,15 +31,14 @@ export default class Controls extends Component {
       .addProp('angle', 0, 'number')
       .addProp('targetAngle', 0, 'number')
       .addProp('throttleTarget', 0, 'number')
-      .addProp('offset', { x: 0, y: 0 })
+      .addProp('offset', new Vector2(0, 0))
       .addAction('updateOffset', (store) => {
-        const move = 5 * store.my.throttle/3;
-        const rad = (store.my.angle) * (Math.PI * 2) / 360;
-        const { x, y } = store.my.offset;
+        const move = (5 * store.my.throttle) / 3;
+        const rad = (store.my.angle * Math.PI * 2) / 360;
         const xAdd = Math.cos(rad) * move;
         const yAdd = Math.sin(rad) * move;
 
-        store.do.setOffset({ x: (x + xAdd), y: (y + yAdd) });
+        store.do.setOffset(store.my.offset.clone().add(new Vector2(xAdd, yAdd)));
       })
       .addProp('stopTarget')
       .addProp('throttle', 0, 'number')

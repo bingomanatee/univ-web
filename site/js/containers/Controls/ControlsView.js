@@ -51,7 +51,7 @@ function SvgComponent({
             fy="62.881289%"
             r="78.3596579%"
             gradientTransform="translate(0.500000,0.628813),scale(1.000000,0.635227),rotate(-90.000000),scale(1.000000,0.604045),translate(-0.500000,-0.628813)"
-            id="radialGradient-1"
+            id="controlCompass"
           >
             <stop stopColor="#FFFFFF" offset="0%" />
             <stop stopColor="#1272B8" offset="41.6220364%" />
@@ -534,7 +534,7 @@ function SvgComponent({
           <g
             id="direction"
             transform={`translate(138.500000, 148.500000) rotate(${direction}) translate(-138.500000, -148.500000) translate(100.000000, 131.000000)`}
-            fill="url(#radialGradient-1)"
+            fill="url(#controlCompass)"
             stroke="#FFFFFF"
             strokeWidth={2}
           >

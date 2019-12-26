@@ -4,28 +4,32 @@ import _N from '@wonderlandlabs/n';
 
 import * as PIXI from 'pixi.js';
 import axios from 'axios';
-import randomFor from '../../randomFor';
-import galaxyColors from './galaxyColors';
+/* import randomFor from '../../randomFor';
+import galaxyColors from './galaxyColors'; */
 import USGHex from './USGHex';
 
-const FADE_DURATION = 1800;
 const white = chroma(255, 255, 255).num();
 const darkGrey = chroma(102, 102, 102).num();
 const black = chroma(0, 0, 0).num();
+const prefixRE = /^x0y0z0\./;
 
 /**
  * Hex is a galaxy sized chunk of space. It is the top-level entity in
  * Hexagon.
  */
 
-export default class Hex {
+export default class UnivSectorGroup {
   constructor({ sector, store }) {
     this.sector = sector;
     this.store = store;
     this.color = darkGrey;
     this._active = false;
     this.loadStatus = 'not loaded';
-    this._ssMap = new Map();
+    this.usgHexes = new Map();
+  }
+
+  highlightHex(h) {
+    this.store.do.highlightHex(h);
   }
 
   get active() {
@@ -58,7 +62,7 @@ export default class Hex {
       .then(({ data }) => {
         if (Array.isArray(data)) {
           this.sector.divide(5);
-          this.sector.forEach(s =>s.galaxies = 0);
+          this.sector.forEach((s) => s.galaxies = 0);
           data.forEach((datum) => {
             const datumID = `${datum.x},${datum.y}`;
             if (this.store.my.datumClaims.has(datumID)) {
@@ -90,7 +94,7 @@ export default class Hex {
             }
           });
           this.loadStatus = 'loaded';
-          this._text.text = this.id;
+          this._text.text = this.id.replace(prefixRE, '');
           this.draw();
         } else {
           this.loadStatus = 'error';
@@ -118,6 +122,10 @@ export default class Hex {
     return this.corners[0];
   }
 
+  get center() {
+    return this.sector.center;
+  }
+
   hexLine() {
     this.graphics.moveTo(this.first.x, this.first.y);
     this.corners.slice(1).forEach(({ x, y }) => this.graphics.lineTo(x, y));
@@ -134,7 +142,7 @@ export default class Hex {
   }
 
   drawBack() {
-    this.graphics.clear()
+    this.graphics
       .beginFill(this.color);
     this.hexLine();
     this.graphics.endFill();
@@ -147,14 +155,17 @@ export default class Hex {
 
   drawSubsectors() {
     this.graphics.clear();
+/*    if (this.sector.coord.x === 0 && this.sector.coord.y === 0) {
+      this.drawBack();
+    }*/
     this.sector.forEach((subSector) => {
       /* this.graphics.beginFill(this.ssColor(subSector));
       this.ssHexLine(subSector);
       this.graphics.endFill(); */
-      if (!this._ssMap.has(subSector.id)) {
-        this._ssMap.set(subSector.id, new USGHex(subSector, this));
+      if (!this.usgHexes.has(subSector.id)) {
+        this.usgHexes.set(subSector.id, new USGHex(subSector, this));
       }
-      this._ssMap.get(subSector.id).draw();
+      this.usgHexes.get(subSector.id).draw();
     });
   }
 
@@ -168,7 +179,7 @@ export default class Hex {
 
   getLabel() {
     if (this._text) return this._text;
-    this._text = new PIXI.Text(`loading sector ${this.id} ...`, {
+    this._text = new PIXI.Text(`loading sector ${this.id.replace(prefixRE, '')} ...`, {
       fontFamily: 'Helvetica,sans-serf', fill: white, fontSize: 24, align: 'center',
     });
     this._text.position = this.sector.center;
