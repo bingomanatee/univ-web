@@ -1,31 +1,19 @@
 import _N from '@wonderlandlabs/n';
 import configUniverse from './configUniverse';
+import configGalaxy from './configGalaxy';
 import pixiStreamFactory from '../../pixiStreamFactory';
 
-
-let univStore;
-export const getUniverse = () => univStore;
+let stream;
+export const getUniverse = () => stream;
 
 export default ({ size, history }) => {
-  univStore = pixiStreamFactory({ size });
-  univStore
+  stream = pixiStreamFactory({ size });
+  stream
     .addChild('history', history)
-    .addSubStream('currentGalaxyName', '')
-    .addAction('updateMousePos', (store, x, y) => {
-      if (_N(x).isValid) {
-        store.do.setX(x);
-        store.do.setY(y);
-      }
-    }, true);
+    .addSubStream('currentGalaxyName', '');
 
-  configUniverse(univStore);
+  configUniverse(stream);
+  configGalaxy(stream);
 
-  /*  univStore.watch('currentGalaxyName', ({ name, value }) => {
-    console.log('watch: current galaxy name set to ', value);
-    if (!value) {
-      univStore.do.setCurrentGalaxy(null);
-    } else univStore.do.tryToLoadGalaxyFromName();
-  }); */
-
-  return univStore;
+  return stream;
 };

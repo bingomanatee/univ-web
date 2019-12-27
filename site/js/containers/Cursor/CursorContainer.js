@@ -21,12 +21,11 @@ export default class CursorContainer extends Component {
   }
 
   render() {
-    const { centerUSGHex } = this.state;
-    console.log('cursor center:', centerUSGHex);
+    const { highlightedHex } = this.state;
 
-    let centerid = _.get(this, 'state.highlightedHex.sector.id', 'x0y0z0.x0y0z0');
+    let centerid = _.get(highlightedHex, 'sector.id', 'x0y0z0.x0y0z0');
     if (centerid) centerid = centerid.replace('x0y0z0.', '');
-    const galaxies = _.get(this, 'state.highlightedHex.galaxies', 0);
-    return <CursorView centerid={centerid} galaxies={galaxies} />;
+    const galaxies = _.get(highlightedHex, 'galaxies', 0);
+    return <CursorView zoom={this.stream.do.zoom} centerid={centerid} galaxies={galaxies} />;
   }
 }

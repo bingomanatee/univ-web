@@ -5,7 +5,6 @@ import * as PIXI from 'pixi.js';
 import _ from 'lodash';
 import axios from 'axios';
 import { Vector2 } from '../../three/Vector2';
-import Hex from './Hex';
 import UnivSectorGroup from './UnivSectorGroup';
 import rectInterset from './rectsIntersect';
 
@@ -17,17 +16,15 @@ const grey = chroma(128, 128, 128).num();
 
 export default (stream) => {
   stream
+    .addProp('hexMap', new Map())
+    .addProp('datumClaims', new Map())
+    .addProp('metaSectors', new Map())
     .addProp('universeGroup', new PIXI.Container())
     .addProp('labelGroup', new PIXI.Container())
     .addProp('highlightGroup', new PIXI.Container())
     .addProp('offsetGroup', new PIXI.Container())
-    .addProp('mouseHex')
     .addProp('universe', universe)
-    .addProp('hexMap', new Map())
-    .addProp('metaSectors', new Map())
-    .addProp('hexagons', new Hexes({ scale: 50, pointy: true }))
     .addProp('universeDrawScale', universeDrawScale)
-    .addProp('datumClaims', new Map())
     .addAction('initUniverse', (store) => {
       console.log('initUniverse begun');
       try {
@@ -44,9 +41,7 @@ export default (stream) => {
           store.my.metaSectors.set(univSectorGroup.id, univSectorGroup);
         });
         store.do.positionUG();
-        setTimeout(() => {
-          store.do.drawHexes();
-        }, 500);
+        setTimeout(store.do.drawHexes, 500);
       } catch (err) {
         console.log('error in initUniverse', err.message);
       }
@@ -54,27 +49,9 @@ export default (stream) => {
       store.do.drawSectors();
       console.log('initUniverse completed');
     })
+    .addProp('offset', new Vector2(0, 0))
+    .addProp('centerUSGHex', null)
     .addProp('highlightedHex', null)
-    .addAction('highlightHex', (store, h) => {
-      if (h === store.my.highlightedHex) return;
-      store.set('highlightedHex', h);
-
-      store.my.highlightGroup.removeChildren();
-      if (h) {
-        const g = new PIXI.Graphics();
-        const corners = h.sector.corners();
-        g.alpha = 0.2;
-        g.beginFill(grey)
-          .moveTo(corners[0].x, corners[0].y);
-
-        corners.forEach(({ x, y }) => {
-          g.lineTo(x, y);
-        });
-        g.endFill();
-
-        store.my.highlightGroup.addChild(g);
-      }
-    })
     .addAction('drawSectors', (store) => {
       try {
         store.my.metaSectors.forEach((usg) => {
@@ -94,33 +71,6 @@ export default (stream) => {
         console.log('drawSectors error:', err.message);
       }
     })
-    .addSubStream('currentGalaxy', null)
-    .addAction('updateCurrentGalaxy', (store, secondTry) => {
-      const hexMap = store.get('hexMap');
-      const name = store.get('currentGalaxyName');
-      if (!name) {
-        return;
-      }
-      console.log('looking for galaxy ', name);
-      if (hexMap.has(name)) {
-        store.do.setCurrentGalaxy(hexMap.get(name));
-        console.log('choosing current galaxy ', hexMap.get(name));
-      } else if (!secondTry) {
-        setTimeout(() => {
-          stream.do.updateCurrentGalaxy(true);
-        }, 1000);
-      }
-    })
-    .addProp('offset', new Vector2(0, 0))
-    .addProp('galaxyMap', new Map())
-    .addAction('tryToGetFrom', (store, center) => {
-      console.log('trying to load near ', center);
-      if (store.my.loadingGalaxy) {
-        return;
-      }
-      store.do.loadGalaxyDensity(center, 5);
-    })
-    .addProp('loadingGalaxy', false)
     .addAction('drawHexes', async (store) => {
       const screenRect = new PIXI.Rectangle(0, 0,
         store.my.width, store.my.height);
@@ -131,30 +81,26 @@ export default (stream) => {
         usg.active = rectInterset(bounds, screenRect);
       });
     })
-    .addAction('tryToLoadGalaxyFromName', (store) => {
-      store.do.updateCurrentGalaxy();
-    })
-    .addAction('updateHex', (store) => {
-      const x = store.get('x');
-      const y = store.get('y');
-      const matrix = store.get('hexagons');
-      const hexMap = store.get('hexMap');
-      const mouseHex = store.get('mouseHex');
+    .addAction('highlightHex', (store, h) => {
+      if (h === store.my.highlightedHex) return;
+      store.do.setHighlightedHex(h);
 
-      const nearestCoord = matrix.nearestHex(x, y);
-      const id = nearestCoord.toString();
-      const nearHex = hexMap.get(id);
+      store.my.highlightGroup.removeChildren();
+      if (h) {
+        const g = new PIXI.Graphics();
+        const corners = h.sector.corners();
+        g.alpha = 0.2;
+        g.beginFill(grey)
+          .moveTo(corners[0].x, corners[0].y);
 
-      if (nearHex !== mouseHex) {
-        if (mouseHex) mouseHex.drawOut();
-        if (nearHex) {
-          nearHex.drawOver();
-        }
-        store.do.setMouseHex(nearHex);
+        corners.forEach(({ x, y }) => {
+          g.lineTo(x, y);
+        });
+        g.endFill();
+
+        store.my.highlightGroup.addChild(g);
       }
     })
-    .addProp('centerUSGHex', null)
-    .addProp('screenCenter', new Vector2(0, 0))
     .addAction('selectCenterHex', (store) => {
       const scrollOffset = store.my.offset.clone()
         .multiplyScalar(1 / universeDrawScale);
@@ -192,9 +138,6 @@ export default (stream) => {
         nearestSub.highlight();
       }
     })
-    .addAction('updateCenter', (store) => {
-      store.do.setScreenCenter(new Vector2(store.my.width / 2, store.my.height / 2));
-    })
     .addAction('positionUG', (store) => {
       const g = store.my.universeGroup;
       if (!g) return;
@@ -209,6 +152,29 @@ export default (stream) => {
         store.do.drawHexes();
       } catch (error) {
         console.log('error in positioningUG: ', error);
+      }
+    })
+
+    // -- deprecated
+    .addProp('mouseHex')
+    .addProp('hexagons', new Hexes({ scale: 50, pointy: true }))
+    .addAction('updateHex', (store) => {
+      const x = store.get('x');
+      const y = store.get('y');
+      const matrix = store.get('hexagons');
+      const hexMap = store.get('hexMap');
+      const mouseHex = store.get('mouseHex');
+
+      const nearestCoord = matrix.nearestHex(x, y);
+      const id = nearestCoord.toString();
+      const nearHex = hexMap.get(id);
+
+      if (nearHex !== mouseHex) {
+        if (mouseHex) mouseHex.drawOut();
+        if (nearHex) {
+          nearHex.drawOver();
+        }
+        store.do.setMouseHex(nearHex);
       }
     })
     .addAction('reloadGalaxies', (store) => {
@@ -228,8 +194,6 @@ export default (stream) => {
     });
 
   stream.watch('size', 'positionUG');
-  stream.watch('width', 'updateCenter');
-  stream.watch('height', 'updateCenter');
   stream.watch('centerUSGHex', ({ value }) => {
     console.log('centerUSGHex changed to ', value.sector.id,
       'x',
@@ -243,6 +207,7 @@ export default (stream) => {
       value.x,
       'y',
       value.y);
+    stream.do.selectCenterHex();
   });
   stream.watch('offset', (values) => {
     if ((values.value.x !== values.was.x) || (values.value.y !== values.was.y)) {
@@ -251,5 +216,15 @@ export default (stream) => {
   });
 
   stream.on('initApp', () => stream.do.initUniverse());
+  // the accuracy of the center cursor readouts depend on loading
+  // the sector data; this is lazy admittedly.
+  setTimeout(
+    stream.do.selectCenterHex,
+    2000,
+  );
+  setTimeout(
+    stream.do.selectCenterHex,
+    6000,
+  );
   return stream;
 };

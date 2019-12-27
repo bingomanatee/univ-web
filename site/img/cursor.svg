@@ -4,22 +4,27 @@
     <title>cursor</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <radialGradient cx="93.4423828%" cy="50%" fx="93.4423828%" fy="50%" r="246.71875%" gradientTransform="translate(0.934424,0.500000),scale(0.500000,1.000000),rotate(180.000000),scale(1.000000,0.604045),translate(-0.934424,-0.500000)" id="radialGradient-1">
-            <stop stop-color="#FFC500" offset="0%"></stop>
-            <stop stop-color="#FFC500" offset="41.313727%"></stop>
-            <stop stop-color="#000001" offset="100%"></stop>
-        </radialGradient>
+        <linearGradient x1="50%" y1="10.9617033%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFEEAF" offset="0%"></stop>
+            <stop stop-color="#FAD961" offset="16.4946155%"></stop>
+            <stop stop-color="#F76B1C" offset="60.8134502%"></stop>
+            <stop stop-color="#893200" offset="100%"></stop>
+        </linearGradient>
     </defs>
     <g id="cursor" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group" transform="translate(15.000000, 30.000000)" fill="url(#radialGradient-1)" stroke="#000000" stroke-linejoin="round" stroke-width="3">
-            <path d="M-1.5,-1.92116461 L46.1846584,10 L-1.5,21.9211646 L-1.5,-1.92116461 Z" id="Path-6"></path>
-            <path d="M48.5,-1.92116461 L96.1846584,10 L48.5,21.9211646 L48.5,-1.92116461 Z" id="Path-6-Copy" transform="translate(70.000000, 10.000000) scale(-1, 1) translate(-70.000000, -10.000000) "></path>
-        </g>
         <text id="Sector:" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="14" font-weight="bold" fill="#F4E200">
             <tspan x="10" y="17">Sector:</tspan>
         </text>
         <text id="Galaxies:-0" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="14" font-weight="bold" fill="#F4E200">
             <tspan x="10" y="74">Galaxies: 0</tspan>
         </text>
+        <rect id="Rectangle" fill="#F8A03D" x="70" y="39" width="26" height="2"></rect>
+        <circle id="Oval" stroke="#F8E71C" cx="60" cy="40" r="10"></circle>
+        <rect id="Rectangle-Copy" fill="#F8A03D" x="10" y="39" width="40" height="2"></rect>
+        <rect id="Rectangle" fill="#F8A03D" x="59" y="20" width="2" height="10"></rect>
+        <rect id="Rectangle-Copy-3" fill="#F8A03D" x="59" y="50" width="2" height="10"></rect>
+        <circle id="Oval" fill="url(#linearGradient-1)" cx="101" cy="40" r="12"></circle>
+        <rect id="Rectangle" fill="#000000" x="94" y="38" width="14" height="4"></rect>
+        <rect id="Rectangle-Copy-2" fill="#000000" transform="translate(101.500000, 40.000000) rotate(90.000000) translate(-101.500000, -40.000000) " x="94" y="38" width="15" height="4"></rect>
     </g>
 </svg>

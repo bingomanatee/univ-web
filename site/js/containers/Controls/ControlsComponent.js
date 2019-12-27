@@ -27,29 +27,29 @@ export default class Controls extends Component {
     this.diRef = React.createRef();
     this.throttleRef = React.createRef();
 
-    this.store = new ValueStream('controls')
+    this.stream = new ValueStream('controls')
       .addProp('angle', 0, 'number')
       .addProp('targetAngle', 0, 'number')
       .addProp('throttleTarget', 0, 'number')
       .addProp('offset', new Vector2(0, 0))
-      .addAction('updateOffset', (store) => {
-        const move = (5 * store.my.throttle) / 3;
-        const rad = (store.my.angle * Math.PI * 2) / 360;
+      .addAction('updateOffset', (stream) => {
+        const move = (5 * stream.my.throttle) / 3;
+        const rad = (stream.my.angle * Math.PI * 2) / 360;
         const xAdd = Math.cos(rad) * move;
         const yAdd = Math.sin(rad) * move;
 
-        store.do.setOffset(store.my.offset.clone().add(new Vector2(xAdd, yAdd)));
+        stream.do.setOffset(stream.my.offset.clone().add(new Vector2(xAdd, yAdd)));
       })
       .addProp('stopTarget')
       .addProp('throttle', 0, 'number')
       .addProp('angleVelocity', 0, 'number')
-      .addAction('moveToTargetAngle', (store) => {
-        let { angle, angleVelocity } = store.my;
+      .addAction('moveToTargetAngle', (stream) => {
+        let { angle, angleVelocity } = stream.my;
 
-        let delta = (angle - store.my.targetAngle) % 360;
+        let delta = (angle - stream.my.targetAngle) % 360;
         if (Math.abs(delta) < 1 && angleVelocity < 1) {
-          store.do.setAngle(store.my.targetAngle);
-          store.do.setAngleVelocity(0);
+          stream.do.setAngle(stream.my.targetAngle);
+          stream.do.setAngleVelocity(0);
           return;
         }
         if (delta > 180) {
@@ -77,17 +77,17 @@ export default class Controls extends Component {
 
         angle += angleVelocity;
 
-        store.do.setAngle(angle);
-        store.do.setAngleVelocity(angleVelocity * 0.8);
+        stream.do.setAngle(angle);
+        stream.do.setAngleVelocity(angleVelocity * 0.8);
 
-        if (angleVelocity || (angle !== store.my.targetAngle)) {
-          setTimeout(store.do.moveToTargetAngle, 100);
+        if (angleVelocity || (angle !== stream.my.targetAngle)) {
+          setTimeout(stream.do.moveToTargetAngle, 100);
         }
       })
       .addProp('directionIndicator')
       .addProp('disc');
 
-    this.state = { ...this.store.state };
+    this.state = { ...this.stream.state };
   }
 
   componentWillUnmount() {
@@ -97,12 +97,15 @@ export default class Controls extends Component {
 
   componentDidMount() {
     this._bsPos = setInterval(() => {
-      this.store.do.updateOffset();
-      this.props.setOffset(this.store.my.offset);
+      this.stream.do.updateOffset();
+      this.props.setOffset(this.stream.my.offset);
     }, 50);
 
-    this._sub = this.store.filter('angle', 'targetAngle', 'throttle')
+    this._sub = this.stream.filter('angle', 'targetAngle', 'throttle')
       .subscribe((state) => this.setState(state));
+    if (this.props.setControlStream) {
+      this.props.setControlStream(this.stream);
+    }
   }
 
   render() {
@@ -115,7 +118,7 @@ export default class Controls extends Component {
             setDirection={(a) => {
               console.log('recieved dir ', a);
               // ui flaw in svg - numbers went wrong direction
-              if (is.number(a)) this.store.do.setAngle(a);
+              if (is.number(a)) this.stream.do.setAngle(a);
               else {
                 console.log('setDirection - bad value: ', a);
               }
@@ -124,7 +127,7 @@ export default class Controls extends Component {
             throttle={throttle}
             setThrottle={(n) => {
               console.log('setThrottle called with ', n);
-              this.store.do.setThrottle(n);
+              this.stream.do.setThrottle(n);
             }}
           />
         </div>

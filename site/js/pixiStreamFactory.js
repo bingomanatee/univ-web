@@ -1,27 +1,33 @@
 import { ValueStream } from '@wonderlandlabs/looking-glass-engine';
 import * as PIXI from 'pixi.js';
 import _ from 'lodash';
-
+import _N from '@wonderlandlabs/n';
+import { Vector2 } from './three/Vector2';
 /**
  * this is a general portal that has a PIXI display element
  * @param size {Object}
- * @returns {ValueSteram}
+ * @returns {ValueStream}
  */
 export default ({ size }) => {
   const stream = new ValueStream('home-stream')
+    .addProp('x', 0, 'number')
+    .addProp('y', 0, 'number')
+    .addProp('ele', null)
+    .addProp('width', _.get(size, 'width', 0), 'number')
+    .addProp('height', _.get(size, 'height', 0), 'number')
+    .addProp('app', null)
+    .addProp('screenCenter', new Vector2(0, 0))
+    .addAction('updateCenter', (store) => {
+      store.do.setScreenCenter(new Vector2(store.my.width / 2, store.my.height / 2));
+    })
     .addAction('tryInit', (store, ele, iSize) => {
-      console.log('psf: tryInit called with ', ele);
-      if (ele) {
+      if (ele && !store.my.app) {
         store.do.setEle(ele);
         const app = new PIXI.Application({ transparent: true, forceFXAA: true });
-        const { width, height } = size;
-        store.set('width', width, 'height', height, 'app', app);
-
-        // eslint-disable-next-line no-param-reassign
-        ele.innerHTML = '';
         store.do.setApp(app);
+        if (iSize) store.do.resizeApp(iSize);
+        ele.innerHTML = '';
         ele.appendChild(app.view);
-        store.do.resizeApp(iSize);
         store.emit('initApp');
       }
     }, true)
@@ -33,12 +39,22 @@ export default ({ size }) => {
         store.emit('resized', { width, height });
       }
     })
-    .addSubStream('x', 0, 'number')
-    .addSubStream('y', 0, 'number')
-    .addSubStream('ele', null)
-    .addSubStream('width', _.get(size, 'width', 0), 'number')
-    .addSubStream('height', _.get(size, 'height', 0), 'number')
-    .addSubStream('app', null);
+    .addAction('updateMousePos', (store, x, y) => {
+      if (_N(x).isValid) {
+        store.do.setX(x);
+        store.do.setY(y);
+      }
+    }, true);
+
+  // purge the app when the stream is shut down
+  stream.subscribe(() => {}, () => {}, () => {
+    const app = stream.my.app;
+    if (app) {
+      app.destroy();
+    }
+  });
+  stream.watch('width', 'updateCenter');
+  stream.watch('height', 'updateCenter');
 
   return stream;
 };

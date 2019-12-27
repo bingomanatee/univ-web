@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { fromEvent } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
 import _ from 'lodash';
-import { Layer } from 'grommet';
+import { Box, Grid, Layer } from 'grommet';
 
 import univStoreFactory from './univ.store';
 import UniverseView from './UniverseView';
 import Controls from '../Controls';
-import Cursor from './Cursor';
+import Cursor from '../Cursor';
+
+import GalaxySector from '../GalaxySector';
 
 export default class UniverseContainer extends Component {
   constructor(props) {
@@ -30,17 +32,18 @@ export default class UniverseContainer extends Component {
         this.stream.do.updateMousePos(_.get(event, 'clientX', 0), _.get(event, 'clientY', 0));
       });
 
-    this.stream.subscribe((stream) => {
-      const galaxy = stream.get('currentGalaxy');
-      if (galaxy !== _.get(this, 'state.galaxy')) this.setState({ galaxy });
-    },
-    (err) => {
-      console.log('galaxy stream error: ', err);
-    });
+    this._sub = this.stream.filter('galaxy', 'zoomed')
+      .subscribe((state) => {
+        this.setState(state);
+      },
+      (err) => {
+        console.log('universe stream error: ', err);
+      });
+  }
 
-    this.stream.watch('currentGalaxy', (galaxy) => {
-      console.log('current galaxy: ', galaxy);
-    });
+  componentWillUnmount() {
+    if (this._sub) this._sub.unsubscribe();
+    this.stream.my.app.destroy();
   }
 
   componentDidUpdate(prevProps) {
@@ -52,10 +55,32 @@ export default class UniverseContainer extends Component {
   }
 
   render() {
+    const { zoomed } = this.state;
+    console.log('zoomed: ', zoomed);
     return (
       <UniverseView reference={this.ref}>
-        <Layer plain position="center"><Cursor stream={this.stream} /></Layer>
-        <Layer plain position="bottom-right"><Controls setOffset={this.stream.do.setOffset} /></Layer>
+        <div className="layer-fill">
+          <Grid
+            fill
+            rows={['279px', '1fr', '120px', '1fr', '279px']}
+            columns={['1fr', '80px', '1fr']}
+            areas={[
+              { name: 'cursor', start: [1, 2], end: [1, 2] },
+              { name: 'controls', start: [2, 4], end: [2, 4] },
+            ]}
+          >
+            <Box fill gridArea="cursor"><Cursor stream={this.stream} /></Box>
+            <Box fill gridArea="controls" align="end" alignContent="end">
+              <Controls
+                setOffset={this.stream.do.setOffset}
+                setControlStream={this.stream.do.setControlsStream}
+              />
+            </Box>
+          </Grid>
+        </div>
+        {(zoomed) ? (
+          <GalaxySector close={this.stream.do.endZoom} getSector={() => this.stream.my.highlightedHex} />
+        ) : ''}
       </UniverseView>
     );
   }

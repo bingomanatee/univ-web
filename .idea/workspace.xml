@@ -2,27 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fdabf26-5a27-43d7-a7fb-9fc9bf857f45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/site/img/cursor.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/Cursor/Cursor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/Cursor/CursorContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/Cursor/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/three/Box2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/three/Math.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/three/Quaternion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/three/Vector2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/three/Vector3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/js/three/realDiff.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/js/containers/GalaxySector/GalaxySectorContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/js/containers/GalaxySector/galaxySector.store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/js/containers/GalaxySector/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/js/containers/Universe/configGalaxy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/davidedelhart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/davidedelhart.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/site/css/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/site/css/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/img/controls.sketch" beforeDir="false" afterPath="$PROJECT_DIR$/site/img/controls.sketch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/img/cursor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/site/img/cursor.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/js/containers/Controls/ControlsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Controls/ControlsComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/js/containers/Controls/ControlsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Controls/ControlsView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/Cursor/Cursor.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Cursor/Cursor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/Cursor/CursorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Cursor/CursorContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/Cursor/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Cursor/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/UniverseContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/UniverseContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/UniverseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/UniverseView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/configUniverse.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/configUniverse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/univ.store.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/univ.store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/pixiStreamFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/pixiStreamFactory.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/site/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/site/js/containers/GalaxySector" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -64,15 +65,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/site/js/containers/GalaxySector" />
       <recent name="$PROJECT_DIR$/site/js" />
       <recent name="$PROJECT_DIR$/site/js/containers/Universe/Cursor" />
       <recent name="$PROJECT_DIR$/site/js/containers/Throttle" />
       <recent name="$PROJECT_DIR$/site/js/containers/pages" />
-      <recent name="$PROJECT_DIR$/site/js/store" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/site/js/containers/Universe/Cursor" />
       <recent name="$PROJECT_DIR$/site/js/containers" />
+      <recent name="$PROJECT_DIR$/site/js/containers/Universe/Cursor" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -140,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577221506168</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="established a target reticle and galaxy count">
+      <created>1577341437724</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1577341437724</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,13 +161,18 @@
     <MESSAGE value="squelching comment" />
     <MESSAGE value="updated control UI" />
     <MESSAGE value="tweaked colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="tweaked colors" />
+    <MESSAGE value="established a target reticle and galaxy count" />
+    <option name="LAST_COMMIT_MESSAGE" value="established a target reticle and galaxy count" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577221505963">
+    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577341437503">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577221505963" />
+    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577341437503" />
+    <state x="1084" y="473" key="EditFileWatcherDialog" timestamp="1577379591096">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="1084" y="473" key="EditFileWatcherDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1577379591096" />
     <state x="1214" y="633" key="Github.ShareDialog" timestamp="1576991072504">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -168,18 +181,18 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="758" y="316" key="SettingsEditor/0.23.2560.1417@0.23.2560.1417" timestamp="1576963899103" />
-    <state x="873" y="410" key="Vcs.Push.Dialog.v2" timestamp="1577221507859">
+    <state x="873" y="410" key="Vcs.Push.Dialog.v2" timestamp="1577341439511">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="873" y="410" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1577221507859" />
+    <state x="873" y="410" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1577341439511" />
     <state x="272" y="246" width="2070" height="1001" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1577127925878">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="272" y="246" width="2070" height="1001" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1577127925878" />
-    <state x="1391" y="459" width="1006" height="652" key="find.popup" timestamp="1577336651679">
+    <state x="1391" y="459" width="1006" height="652" key="find.popup" timestamp="1577419304947">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="1391" y="459" width="1006" height="652" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1577336651679" />
+    <state x="1391" y="459" width="1006" height="652" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1577419304947" />
     <state x="910" y="355" key="run.anything.popup" timestamp="1576910399437">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
