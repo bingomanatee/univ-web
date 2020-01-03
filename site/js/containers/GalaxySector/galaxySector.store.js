@@ -1,11 +1,13 @@
 import _N from '@wonderlandlabs/n';
+import { Universe } from '@wonderlandlabs/universe';
 import _ from 'lodash';
 import * as PIXI from 'pixi.js';
 import chroma from 'chroma-js';
+import axios from 'axios';
 
-import { Universe } from '@wonderlandlabs/universe';
 import pixiStreamFactory from '../../pixiStreamFactory';
 import { Vector2 } from '../../three/Vector2';
+import apiRoot from '../../util/apiRoot';
 
 const SECTOR_DIVS = 40;
 const white = chroma(255, 255, 255).num();
@@ -37,7 +39,7 @@ export default ({ getSector, size }) => {
         let g = new PIXI.Graphics();
         stream.my.centerGroup.removeChildren();
         stream.my.sector.forEach((subSector, i) => {
-          if (subSector.galaxies) {
+          if (subSector.galaxies > 0) {
             g.beginFill(_.shuffle([red, white, blue]).pop());
           } else {
             g.beginFill(black);
@@ -78,6 +80,36 @@ export default ({ getSector, size }) => {
     })
     .addProp('initialized', false, 'boolean')
     .addProp('failedToInit', false, 'boolean')
+    .addProp('absCoord', null)
+    .addAction('loadSubsectors', async (stream) => {
+      const coord = stream.my.absCoord;
+      if (!coord) {
+        console.log('---- error: no absCoord');
+        return;
+      }
+
+      const { x, y } = coord;
+      const z = _N(x).plus(y).times(-1).value;
+      const id = `x0y0z0.x${x}y${y}z${z}`;
+
+      let subCoords = await axios.get(`${apiRoot()}/uni/${id}/_/divide`)
+        .then(({ data }) => data);
+      stream.my.sector.forEach((gSub) => {
+        if (subCoords.length < 1) return;
+
+        // find the subcoord with the same x and y coord -- should be none or one
+        const matches = subCoords.filter((c) => c.x === gSub.x && c.y === gSub.y);
+
+        if (matches.length) {
+          // assign its galaxies
+          gSub.galaxies = matches[0].g;
+          // remove it from subCoords;
+          subCoords = _.difference(subCoords, matches);
+        }
+      });
+      console.log('loaded coords into sector');
+      stream.do.drawHexes();
+    })
     .addAction('initSector', (stream) => {
       console.log('initSector begun');
       if (!stream.my.sector) {
@@ -95,6 +127,36 @@ export default ({ getSector, size }) => {
       }
 
       console.log('initSector completed');
+    })
+    .addAction('sendSubsectors', (stream) => {
+      console.log('deprecating client-push model of the universe');
+      /*
+
+      const sector = stream.my.sector;
+   if (!sector) {
+        console.log('sendSubsectors: -- no sector to send');
+        return;
+      }
+
+      try {
+        const sectors = [];
+        sector.forEach((subsector) => {
+          if (subsector.galaxies) {
+            sectors.push({
+              x: subsector.x,
+              y: subsector.y,
+              galaxies: subsector.galaxies,
+            });
+          }
+        });
+
+        const url = `${apiRoot()}/uni/${sector.absCoord.x},${sector.absCoord.y}/${sector.parent.id}`;
+
+        console.log('sendSubsectors: -- sending', sectors, ' to ', url);
+        axios.post(url, { sectors });
+      } catch (err) {
+        console.log('sendSubsectors: -- error:', err);
+      } */
     })
     .addAction('scaleDiameter', (stream) => {
       try {
@@ -128,17 +190,31 @@ export default ({ getSector, size }) => {
     const galaxies = _.get(highlighted, 'galaxies', 0);
 
     if (!(sector)) {
+      // race condition occasionally messes up retrieval of highlighted data
       setTimeout(tryToLoadHighlighted, 100);
       return;
     }
     // we create a duplicate of sector to reduce the amount of long-term data storage
 
-    const galaxySector = new Universe({ diameter: sector.diameter, galaxies });
-    galaxySector.makeSubsectors(SECTOR_DIVS);
-    galaxySector.distributeGalaxies();
+    console.log('---- cloning -- ', sector.id);
+    const galaxySector = new Universe({ parent: sector.parent.parent, diameter: sector.diameter, galaxies });
+    console.log('--- from ', sector.coord.x, sector.coord.y);
+    const scaled = new Vector2(sector.parent.coord.x * 10, sector.parent.coord.y * 10);
+    console.log('--- and parent ', sector.parent.coord.x, sector.parent.coord.y, 'scaled to ', scaled);
+    galaxySector.absCoord = new Vector2(sector.coord.x, sector.coord.y)
+      .add(scaled);
+    console.log('--- net result: ', galaxySector.absCoord);
 
+    // generating subsectors in the client; will ultimately do this on the server.
+
+    galaxySector.makeSubsectors(SECTOR_DIVS);
+    galaxySector.forEach((s) => s.galaxies = 0);
+    // galaxySector.distributeGalaxies();
+
+    galStream.do.setAbsCoord(galaxySector.absCoord);
     galStream.do.setSector(galaxySector);
     galStream.do.setGalaxies(galaxies);
+    galStream.do.loadSubsectors();
     if (galStream.my.failedToInit) {
       galStream.do.initSector();
     }

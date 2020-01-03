@@ -1,5 +1,4 @@
 import { proppify } from '@wonderlandlabs/propper';
-
 import _ from 'lodash';
 import _N from '@wonderlandlabs/n';
 
@@ -38,7 +37,9 @@ class USGHex {
   }
 
   initGalaxyCoords() {
-    if (!this.sector.galaxies) return;
+    if (!this.sector.galaxies) {
+      return;
+    }
 
     this.sector.divide(5);
 
@@ -54,7 +55,9 @@ class USGHex {
   }
 
   draw() {
-    if (this.sector.galaxies <= 0) return;
+    if (this.sector.galaxies <= 0) {
+      return;
+    }
     if (!this.galaxyCoords.length) {
       this.initGalaxyCoords();
     }

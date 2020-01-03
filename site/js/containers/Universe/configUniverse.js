@@ -3,7 +3,6 @@ import { Universe } from '@wonderlandlabs/universe';
 import chroma from 'chroma-js';
 import * as PIXI from 'pixi.js';
 import _ from 'lodash';
-import axios from 'axios';
 import { Vector2 } from '../../three/Vector2';
 import UnivSectorGroup from './UnivSectorGroup';
 import rectInterset from './rectsIntersect';

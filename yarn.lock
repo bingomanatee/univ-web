@@ -1553,12 +1553,13 @@
   dependencies:
     is "^3.3.0"
 
-"@wonderlandlabs/universe@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@wonderlandlabs/universe/-/universe-1.0.0.tgz#92ba58ba6c0be530c612dc8613a17d31f353fd3e"
-  integrity sha512-EGQ8pmSeUZvVH/FnQHdSunEtZZp0sgs0frFS0xzUE+Tx0Y4eGMBlnkgG3ifYfcsisQ845M6G1eF1qkOj3kDl3w==
+"@wonderlandlabs/universe@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@wonderlandlabs/universe/-/universe-1.0.1.tgz#d8e93c1746ca4976e1785f07b784bc73887290ea"
+  integrity sha512-G/7vBII6J0txntTaUAQDRX2qdR5R3DKJi0pDWGyMkmMBI5kxgTeXcMer9rteqswlu+5Gw7xsIn6JrfjhpeewmA==
   dependencies:
     "@wonderlandlabs/hexagony" "^2.0.0"
+    "@wonderlandlabs/n" "^1.0.2"
     "@wonderlandlabs/propper" "^3.0.0"
     babel-eslint "^10.0.3"
     eslint-plugin-react-hooks "^2.1.1"

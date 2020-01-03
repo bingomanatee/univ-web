@@ -1,12 +1,11 @@
 import chroma from 'chroma-js';
 import _ from 'lodash';
 import _N from '@wonderlandlabs/n';
-
 import * as PIXI from 'pixi.js';
 import axios from 'axios';
-/* import randomFor from '../../randomFor';
-import galaxyColors from './galaxyColors'; */
+
 import USGHex from './USGHex';
+import apiRoot from '../../util/apiRoot';
 
 const white = chroma(255, 255, 255).num();
 const darkGrey = chroma(102, 102, 102).num();
@@ -16,6 +15,16 @@ const prefixRE = /^x0y0z0\./;
 /**
  * Hex is a galaxy sized chunk of space. It is the top-level entity in
  * Hexagon.
+ *
+ * Note that the client divides the universe into  rad 30 large sectors that
+ * it further divides into rad 5 subsectors; this maps to the
+ * flat collection in the backend of the universe divided by 300 sectors, which we
+ * load in chunks in the frontend, to avoid loading the ~50k level 1 sectors from
+ * the backend in one fell swoop.
+ *
+ * Thus it requires some math (see below) to assign
+ * the backends' level 1 sectors
+ * to the frontends' level 2 sectors.
  */
 
 export default class UnivSectorGroup {
@@ -56,13 +65,28 @@ export default class UnivSectorGroup {
     x *= 10;
     y *= 10;
 
+    /**
+     * note - the universe in the backend is a flat collection of data
+     * in a divided by a radius of 300;
+     * the frontend sectors are artificial constructs divided by a radius of 30,
+     * and then subdivided by 5.
+     *
+     * (A / (30 * 2))/(5 * 2) = (A / 60) / 10) = A / 600,
+     * equals (A / (300 * 2);
+     *
+     * Given that the level 2 hexes that result have to be adjusted by their parents' coordinates
+     * to map the level 1 coordinates stored by the backend, we have to compute localX and localY
+     * based on a combination of the frontend only subsectors and the local coordinates of the level
+     * 2 hexes.
+     */
+
     this.loadStatus = 'loading';
-    const url = `https://univ-2019.appspot.com/uni/${x},${y}/x0y0z0?range=7`;
+    const url = `${apiRoot()}/uni/x0y0z0/${x},${y}?range=7`;
     axios.get(url)
       .then(({ data }) => {
         if (Array.isArray(data)) {
           this.sector.divide(5);
-          this.sector.forEach((s) => s.galaxies = 0);
+          this.sector.forEach((s) => { s.galaxies = 0; });
           data.forEach((datum) => {
             const datumID = `${datum.x},${datum.y}`;
             if (this.store.my.datumClaims.has(datumID)) {
@@ -155,9 +179,6 @@ export default class UnivSectorGroup {
 
   drawSubsectors() {
     this.graphics.clear();
-/*    if (this.sector.coord.x === 0 && this.sector.coord.y === 0) {
-      this.drawBack();
-    }*/
     this.sector.forEach((subSector) => {
       /* this.graphics.beginFill(this.ssColor(subSector));
       this.ssHexLine(subSector);
@@ -187,7 +208,6 @@ export default class UnivSectorGroup {
   }
 
   labelDatums() {
-    const { labelGroup } = this.store.my;
     this.sector.forEach((sub) => {
       if (sub.datum) {
         const text = new PIXI.Text(`${sub.datum.x},${sub.datum.y}`, {
