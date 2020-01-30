@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fdabf26-5a27-43d7-a7fb-9fc9bf857f45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/site/js/util/apiRoot.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/img/controls.sketch" beforeDir="false" afterPath="$PROJECT_DIR$/site/img/controls.sketch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/containers/GalaxySector/GalaxySectorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/GalaxySector/GalaxySectorContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/js/containers/GalaxySector/galaxySector.store.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/GalaxySector/galaxySector.store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/USGHex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/UnivSectorGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/js/containers/Universe/configUniverse.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/containers/Universe/configUniverse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/js/util/apiRoot.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/js/util/apiRoot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/site/js/containers/GalaxySector" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -141,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577424401032</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="frontend now polls subsector data from backend">
+      <created>1578087618671</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1578087618671</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,13 +160,14 @@
     <MESSAGE value="tweaked colors" />
     <MESSAGE value="established a target reticle and galaxy count" />
     <MESSAGE value="adding galaxy subsector zoom" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding galaxy subsector zoom" />
+    <MESSAGE value="frontend now polls subsector data from backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend now polls subsector data from backend" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1577424400862">
+    <state x="881" y="182" key="CommitChangelistDialog2" timestamp="1578087618514">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1577424400862" />
+    <state x="881" y="182" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1578087618514" />
     <state x="1084" y="473" key="EditFileWatcherDialog" timestamp="1577379591096">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -175,18 +180,18 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="758" y="316" key="SettingsEditor/0.23.2560.1417@0.23.2560.1417" timestamp="1576963899103" />
-    <state x="873" y="410" key="Vcs.Push.Dialog.v2" timestamp="1577424911564">
+    <state x="873" y="410" key="Vcs.Push.Dialog.v2" timestamp="1578087620833">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="873" y="410" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1577424911564" />
+    <state x="873" y="410" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1578087620833" />
     <state x="272" y="246" width="2070" height="1001" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1577127925878">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="272" y="246" width="2070" height="1001" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1577127925878" />
-    <state x="1391" y="459" width="1006" height="652" key="find.popup" timestamp="1578081670951">
+    <state x="1391" y="459" width="1006" height="652" key="find.popup" timestamp="1579985423621">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="1391" y="459" width="1006" height="652" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1578081670951" />
+    <state x="1391" y="459" width="1006" height="652" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1579985423621" />
     <state x="910" y="355" key="run.anything.popup" timestamp="1576910399437">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>

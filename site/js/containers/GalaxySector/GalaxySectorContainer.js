@@ -56,6 +56,7 @@ export default class GalaxySectorContainer extends Component {
         <div
           ref={this.pixiRef}
           className="layer-fill"
+          style={({ backgroundColor: 'rgba(0,102,0,0.66)' })}
         />
         <CloseBtnWrapper>
           <Button primary plain={false} onClick={this.props.close}>

@@ -14,7 +14,9 @@ const white = chroma(255, 255, 255).num();
 const red = chroma(255, 0, 0).num();
 const blue = chroma(0, 0, 255).num();
 const black = chroma(0, 0, 0).num();
-const grey = chroma(102, 102, 102).num();
+const green = chroma(0, 153, 0).num();
+const yellow = chroma(153, 255, 0).num();
+const grey = chroma(51, 102, 51).num();
 
 export default ({ getSector, size }) => {
   const galStream = pixiStreamFactory({ size });
@@ -39,11 +41,13 @@ export default ({ getSector, size }) => {
         let g = new PIXI.Graphics();
         stream.my.centerGroup.removeChildren();
         stream.my.sector.forEach((subSector, i) => {
-          if (subSector.galaxies > 0) {
-            g.beginFill(_.shuffle([red, white, blue]).pop());
-          } else {
+          if (subSector.galaxies < 1) {
             g.beginFill(black);
             g.lineStyle(1 / stream.my.appScale, grey, 0.5);
+          } else if (subSector.galxies === 1) {
+            g.beginFill(green);
+          } else {
+            g.beginFill(yellow);
           }
           const corners = subSector.corners(true).map((c) => c.round());
           if (!subSector.coord.x && !subSector.coord.y) {
